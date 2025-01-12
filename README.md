@@ -1,18 +1,22 @@
-# Salesforce DX Project: Next Steps
+# LWC and Comet
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Subscribe to Comet based integration events such as PE, CDC, Push Topic from LWC using EMP API.
 
-## How Do You Plan to Deploy Your Changes?
+Use case:
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+1. When an opportunity is updated and status is moved to closed won then publish a platform event with details such as Opportunity Name and Opportunity Owner
 
-## Configure Your Salesforce DX Project
+2. Grab that event in a LWC component and show notification on screen.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+Solution:
 
-## Read All About It
+1. Platform Event is defined can be found in objects
+2. Flow is created for update opportunity and publish an event on update n status match
+3. Refer to LWC component to subscribe for event on page and open developer console to vie result
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+How to Test:
+
+1. Edit opportunity record page and add this component to record page.
+2. Subscribe to listen (Click)
+3. Edit record and change status to Closed Won
+4. bserver developer console
